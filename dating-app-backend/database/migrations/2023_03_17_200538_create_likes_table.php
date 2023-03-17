@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_images', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('url');
-            $table->boolean('is_main')->default(false);
+            $table->foreignId('user_id')
+            ->constrained('app_users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('liked_user_id')
+            ->constrained('app_users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_images');
+        Schema::dropIfExists('likes');
     }
 };
