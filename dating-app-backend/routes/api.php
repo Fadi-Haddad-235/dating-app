@@ -16,4 +16,5 @@ Route::controller(AuthController::class)->group(function () {
 Route::group(["middleware" => "auth:api"], function () {
     Route::post('/users', [UserController::class, 'getUsers']);
     Route::post('/editprofile', [UserController::class, 'editProfile']);
+    Route::post('/editprofile', [UserController::class, 'editProfile']);
 });

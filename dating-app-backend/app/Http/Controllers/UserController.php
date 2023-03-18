@@ -14,7 +14,15 @@ class UserController extends Controller
 {
     public function getUsers()
     {
-        $users = DB::table('app_users')->get();
+        $gender=Auth::user()->gender;
+        if ($gender=='male'){
+            $oppsiteGender='female';
+        }
+        else {
+            $oppsiteGender = 'male';
+        }
+
+        $users = DB::table('app_users')->where('gender', $oppsiteGender)->get();
         return response()->json([
             'status' => 'success',
             'users' => $users
