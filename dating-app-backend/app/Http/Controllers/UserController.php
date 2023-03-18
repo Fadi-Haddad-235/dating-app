@@ -15,6 +15,7 @@ class UserController extends Controller
     public function getUsers()
     {
         $gender=Auth::user()->gender;
+
         if ($gender=='male'){
             $oppsiteGender='female';
         }
@@ -51,6 +52,21 @@ class UserController extends Controller
         return response()->json([
             'status' => 'success',
             'data'=> $user
+        ]);
+    }
+
+    public function viewSomeProfile($id)
+    {
+        $user = DB::table('app_users')->where('id', $id)->first();
+        if(!$user){
+            return response()->json([
+                'status'=>'error',
+                'message'=>"something went wrong, user profile not found",404
+            ]);
+        }
+        return response()->json([
+            'status' => 'success',
+            'user'=> $user,
         ]);
     }
 }
