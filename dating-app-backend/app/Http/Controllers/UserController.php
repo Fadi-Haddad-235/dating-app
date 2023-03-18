@@ -69,4 +69,34 @@ class UserController extends Controller
             'user'=> $user,
         ]);
     }
+    public function filterUsers(Request $request)
+    {
+        $maxAge = $request->input('max_age');
+        $location = $request->input('location');
+        $gender=Auth::user()->gender;
+
+        if ($gender=='male'){
+            $oppsiteGender='female';
+        }
+        else {
+            $oppsiteGender = 'male';
+        }
+
+        $query = DB::table('app_users');
+
+        if ($location) {
+            $query->where('location', $location);
+        }
+        if ($maxAge) {
+            $query->where('age', '<', $maxAge);
+        }
+        $query->where('gender','=', $oppsiteGender);
+        $results = $query->get();
+
+        // Return the filtered results
+        return response()->json([
+            'status' => 'success',
+            'users' => $results
+        ]);
+        }
 }

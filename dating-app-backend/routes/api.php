@@ -17,4 +17,5 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/users', [UserController::class, 'getUsers']);
     Route::post('/editprofile', [UserController::class, 'editProfile']);
     Route::post('/user/{id}', [UserController::class, 'viewSomeProfile']);
+    Route::post('/filterUsers', [UserController::class, 'filterUsers']);
 });
