@@ -20,4 +20,29 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+    public function editProfile(Request $request)
+    {
+        $user = Auth::user();  //retrieves the entire user model instance
+
+
+        $user->fill($request->only([
+            'name',
+            'email',
+            'birthdate',
+            'location',
+            'bio',
+            'gender',
+            'profile_picture',
+        ]));
+
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data'=> $user
+        ]);
+    }
 }
