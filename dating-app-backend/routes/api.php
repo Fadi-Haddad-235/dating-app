@@ -20,4 +20,6 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/filterUsers', [UserController::class, 'filterUsers']);
     Route::post('/like/{id}', [UserController::class, 'likeUser']);
     Route::post('/block/{id}', [UserController::class, 'blockUser']);
+    Route::post('/unlike/{id}', [UserController::class, 'unlikeUser']);
+    Route::post('/unblock/{id}', [UserController::class, 'unBlockUser']);
 });

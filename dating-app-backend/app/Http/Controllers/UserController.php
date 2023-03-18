@@ -151,4 +151,58 @@ class UserController extends Controller
                 'message' => 'you have successfully blocked this user'
             ]);
         }
+        public function unblockUser(Request $request, $id)
+        {
+            $user_id = Auth::id();
+            $blocked_user_id = $id;
+            $blockCount = DB::table('blocks')
+            ->where('user_id', Auth::id())
+            ->where('blocked_user_id', $blocked_user_id)
+            ->count();
+
+            if ($blockCount == 0){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'user is not blocked'
+                ]);
+            }
+
+            DB::table('blocks')
+            ->where('user_id', $user_id)
+            ->where('blocked_user_id', $blocked_user_id)
+            ->delete();
+    
+        return response()->json([
+            'status' => 'success',
+            'message' => 'user unblocked successfully'
+        ]);
+        }
+        
+        public function unlikeUser(Request $request, $id)
+        {
+            $user_id = Auth::id();
+            $liked_user_id = $id;
+            $likeCount = DB::table('likes')
+                ->where('user_id', $user_id)
+                ->where('liked_user_id', $liked_user_id)
+                ->count();
+        
+            if ($likeCount == 0){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'user is not liked'
+                ]);
+            }
+        
+            DB::table('likes')
+                ->where('user_id', $user_id)
+                ->where('liked_user_id', $liked_user_id)
+                ->delete();
+        
+            return response()->json([
+                'status' => 'success',
+                'message' => 'user unliked successfully'
+            ]);
+        }
+        
 }
