@@ -99,4 +99,30 @@ class UserController extends Controller
             'users' => $results
         ]);
         }
+        public function likeUser(Request $request, $id)
+        {
+            $user_id = Auth::id();
+            $liked_user_id = $id;
+            $likeCount = DB::table('likes')
+            ->where('user_id', Auth::id())
+            ->where('liked_user_id', $liked_user_id)
+            ->count();
+
+            if ($likeCount > 0){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'you have already liked this user'
+                ]);
+            }
+
+            DB::table('likes')->insert([
+                'user_id' => Auth::id(),
+                'liked_user_id' => $liked_user_id
+                
+            ]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'you have successfully liked this user'
+            ]);
+        }
 }
