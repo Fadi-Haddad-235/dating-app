@@ -177,7 +177,7 @@ class UserController extends Controller
             'message' => 'user unblocked successfully'
         ]);
         }
-        
+
         public function unlikeUser(Request $request, $id)
         {
             $user_id = Auth::id();
@@ -204,5 +204,18 @@ class UserController extends Controller
                 'message' => 'user unliked successfully'
             ]);
         }
-        
+
+        public function search(Request $request) 
+        {
+         $param = $request->input('q');
+
+         $users = DB::table('app_users')
+         ->where('name', 'LIKE', '%'.$param.'%')
+         ->get();
+
+         return response()->json([
+            'status'=>'success',
+            'data' => $users,
+         ]);
+        }
 }
