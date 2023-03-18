@@ -12,11 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_images', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')
-            ->constrained('app_users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
             $table->string('url');
             $table->boolean('is_main')->default(false);
             $table->timestamps();

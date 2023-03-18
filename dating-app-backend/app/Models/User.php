@@ -11,6 +11,8 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
+    
+    protected $table = 'app_users';
 
     /**
      * The attributes that are mass assignable.

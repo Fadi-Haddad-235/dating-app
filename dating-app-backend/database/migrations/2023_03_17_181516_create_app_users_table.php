@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('app_users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->date('birthdate');
+            $table->date('birthdate')->default(DB::raw('CURRENT_DATE'));
             $table->string('location')->nullable();
             $table->text('bio')->nullable();
             $table->enum('gender', ['male', 'female']);
