@@ -125,4 +125,30 @@ class UserController extends Controller
                 'message' => 'you have successfully liked this user'
             ]);
         }
+        public function blockUser(Request $request, $id)
+        {
+            $user_id = Auth::id();
+            $blocked_user_id = $id;
+            $blockCount = DB::table('blocks')
+            ->where('user_id', Auth::id())
+            ->where('blocked_user_id', $blocked_user_id)
+            ->count();
+
+            if ($blockCount > 0){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'you have already blocked this user'
+                ]);
+            }
+
+            DB::table('blocks')->insert([
+                'user_id' => Auth::id(),
+                'blocked_user_id' => $blocked_user_id
+                
+            ]);
+            return response()->json([
+                'status' => 'success',
+                'message' => 'you have successfully blocked this user'
+            ]);
+        }
 }
