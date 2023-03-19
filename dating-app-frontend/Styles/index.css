@@ -5,6 +5,14 @@
     font-family: lato, arial;
 }
 .header{
+    background-image: url("../images/hero-img.webp");
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10%;
+}
+.header{
     padding-top: 2%;
 }
 .navbar{
@@ -24,6 +32,11 @@
 .logo{
     padding-right: 40%;
 }
+.get-who-gets-you{
+    width: 50vh;
+    margin : 5% 0 0 5%;
+}
+
 .headline{
     letter-spacing: 1.4px;
     border-bottom :1px solid #fff;
@@ -42,10 +55,54 @@
     text-transform:lowercase;
     font-size: 36px;
 }
-.get-who-gets-you{
-    width: 50vh;
-    margin : 5% 0 0 5%;
-}
-.header-text-1{
+.sign-log-btn{
+    background: linear-gradient(to bottom right, #fa5775, #FF9A5A);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    margin:0 25%;
+  }
+  
+  .sign-log-btn2:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+  
+  .sign-log-btn:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  }
+.main{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cards h4{
+text-align: center;
+  }
+  .header-text-1{
     margin: 2% 0;
+  }
+  .card{
+    margin:0 5%;
   }
