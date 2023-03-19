@@ -26,6 +26,7 @@ body{
   .password, .email{
       display: block;
       margin:15px 0;
+      /* height: 40px; */
   }
   .accounts img{
       height: 32px;
@@ -122,3 +123,8 @@ margin-top: 10px;
 .bottom-section a{
 color:black
   }
+  #email, #password{
+    height: 20px;
+    font-size: 16px;
+  }
+  
