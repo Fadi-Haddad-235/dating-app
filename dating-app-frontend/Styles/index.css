@@ -24,3 +24,25 @@
 .logo{
     padding-right: 40%;
 }
+.headline{
+    letter-spacing: 1.4px;
+    border-bottom :1px solid #fff;
+    width: fit-content;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    font-size: 28px;
+    padding-bottom: 3px;
+    margin : 5% 0 0 5%;
+}
+.headline em{
+    color: #ffcb4a;
+    font-style: italic;
+    text-transform:lowercase;
+    font-size: 36px;
+}
+.get-who-gets-you{
+    width: 50vh;
+    margin : 5% 0 0 5%;
+}
