@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="Styles/userprofile.css">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="Styles/editprofile.css">
     <script src="scripts/axios.min.js"></script>
-    <script src="scripts/userprofile.js"></script>
+    <script src="scripts/editprofile.js"></script>
 </head>
 <body>
     <div class="header">
@@ -20,24 +20,20 @@
     </div>
     <div class="container">
         <div class="left">
-            <img id="user_picture" src="images/default-person.jpg" alt="">
-            <h2 id="name">Name</h2>
-            <button>edit profile</button>
-            <a href="search.html">Search</a>
-            <a href="likes.html">Likes</a>
-            <a href="users.html">New People</a>
-            <a href="messages.html">Messages</a>
-            <a href="notifications.html">Notifications</a>
+
         </div>
         <div class="right">
+            <h4>Name</h4>
+            <input type="text" name="" id="name" value="some value">
             <h4>Email</h4>
-            <p id="email">some email</p>
+            <input type="text" name="" id="email" value="some value">
             <h4>Age</h4>
-            <p id="age">some age</p>
+            <input type="text" name="" id="age" value="some value">
             <h4>Location</h4>
-            <p id="location">some location</p>
+            <input type="text" name="" id="location" value="some value">
             <h4>Bio</h4>
-            <p id="bio">some bio</p>
+            <input type="text" name="" id="bio" value="some value">
+            <button id="submit_btn">submit</button>
         </div>
     </div>
 </body>
