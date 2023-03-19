@@ -99,6 +99,7 @@ class UserController extends Controller
             'users' => $results
         ]);
         }
+
         public function likeUser(Request $request, $id)
         {
             $user_id = Auth::id();
@@ -117,14 +118,20 @@ class UserController extends Controller
 
             DB::table('likes')->insert([
                 'user_id' => Auth::id(),
-                'liked_user_id' => $liked_user_id
-                
+                'liked_user_id' => $liked_user_id,
+            ]);
+
+            DB::table('notifications')->insert([
+                'user_id' => Auth::id(),
+                'sender_id' => $liked_user_id,
+                'type' => 'like',
             ]);
             return response()->json([
                 'status' => 'success',
                 'message' => 'you have successfully liked this user'
             ]);
         }
+
         public function blockUser(Request $request, $id)
         {
             $user_id = Auth::id();
@@ -146,6 +153,13 @@ class UserController extends Controller
                 'blocked_user_id' => $blocked_user_id
                 
             ]);
+
+            DB::table('notifications')->insert([
+                'user_id' => Auth::id(),
+                'sender_id' => $blocked_user_id,
+                'type' => 'block'
+            ]);
+
             return response()->json([
                 'status' => 'success',
                 'message' => 'you have successfully blocked this user'
@@ -171,6 +185,12 @@ class UserController extends Controller
             ->where('user_id', $user_id)
             ->where('blocked_user_id', $blocked_user_id)
             ->delete();
+
+            DB::table('notifications')->insert([
+                'user_id' => Auth::id(),
+                'sender_id' => $blocked_user_id,
+                'type' => 'unblock'
+            ]);
     
         return response()->json([
             'status' => 'success',
@@ -198,6 +218,12 @@ class UserController extends Controller
                 ->where('user_id', $user_id)
                 ->where('liked_user_id', $liked_user_id)
                 ->delete();
+
+            DB::table('notifications')->insert([
+                'user_id' => Auth::id(),
+                'sender_id' => $liked_user_id,
+                'type' => 'unlike'
+            ]);
         
             return response()->json([
                 'status' => 'success',
@@ -218,4 +244,16 @@ class UserController extends Controller
             'data' => $users,
          ]);
         }
+        public function viewNotifications(Request $request)
+        {
+        $notifications = DB::table('notifications')
+        ->where('user_id', Auth::id())
+        ->get();
+        return response()->json([
+            'status' => 'success',
+            'users' => $notifications
+        ]);
+        }
+
+
 }

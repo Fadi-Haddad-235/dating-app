@@ -23,4 +23,5 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/unlike/{id}', [UserController::class, 'unlikeUser']);
     Route::post('/unblock/{id}', [UserController::class, 'unBlockUser']);
     Route::get('/users/search', [UserController::class, 'search']);
+    Route::post('/notifications', [UserController::class, 'viewNotifications']);
 });
