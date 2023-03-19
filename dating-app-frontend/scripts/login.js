@@ -51,16 +51,19 @@ function validate (){
         let data = new FormData();
         data.append('email', email.value);
         data.append('password', password.value);
-        console.log(email.value,password.value,"here")
 
         axios.post('http://localhost:8000/api/login', data).then(function (res) {
-            console.log(res.data);
-            
+            console.log(res.data)
+
             localStorage.setItem('user', JSON.stringify(res.data.user));
             
             localStorage.setItem('token', res.data.authorisation.token);
+
+            window.location.href = '/userprofile.html';
+
             }).catch(function (err) {
                 console.log(err);
+                alert('Incorrect email or password');
             })
     }
     else{
