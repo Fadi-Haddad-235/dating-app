@@ -1,5 +1,5 @@
 body{
-  font-family: roboto;
+  font-family: lato, arial;
   background-color: #b7c9fa
   }
   .container{
@@ -47,7 +47,7 @@ body{
   border-radius:1em;
   box-sizing: border-box;
   text-decoration:none;
-  font-family:'Roboto',sans-serif;
+  /* font-family:'Roboto',sans-serif; */
   font-weight:300;
   color:#FFFFFF;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
@@ -58,9 +58,7 @@ body{
   #login-button:hover{
       border-color: rgba(255,255,255,1);
       }
-  h1{
-      font-family: roboto;
-  }
+
   i{
       float: right;
   }
