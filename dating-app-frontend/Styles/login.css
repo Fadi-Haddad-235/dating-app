@@ -1,0 +1,126 @@
+body{
+  font-family: roboto;
+  background-color: #b7c9fa
+  }
+  .container{
+    padding-top: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  }
+  .left img{
+      border-radius: 10px;
+      padding-right: 15px;
+      height: 612px;
+  }
+  .right{
+      width: 500px;
+      background-color: #fff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .password, .email{
+      display: block;
+      margin:15px 0;
+  }
+  .accounts img{
+      height: 32px;
+      width: 32px;
+  }
+  .accounts{
+      display: flex;
+      justify-content: space-around;
+  }
+  .sign-in-text{
+      text-align: center;
+  }
+  #login-button ,a #login-button{
+  width:-webkit-fill-available;
+  background-color:#8f2efd;
+  display:inline-block;
+  padding:0.1em;
+  border:2px solid rgba(255,255,255,0);
+  border-radius:1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  text-align:center;
+  transition: all 0.2s;
+  font-size: 25px;
+  }
+  #login-button:hover{
+      border-color: rgba(255,255,255,1);
+      }
+  h1{
+      font-family: roboto;
+  }
+  i{
+      float: right;
+  }
+  .hidden{
+      visibility: hidden;
+  }
+  #login{
+      text-decoration: none;
+  }
+  a:hover {
+      text-decoration: none;
+    }
+  a:link {
+      text-decoration: none;
+      color: white;
+    }
+  #login-button.shake{
+      animation: shake 0.3s;
+  }
+  @keyframes shake{
+      0% {
+        transform: translate(0);
+      }
+      10% {
+        transform: translate(1em);
+      }
+      20% {
+        transform: translate(-1em);
+      }
+      30% {
+          transform: translate(1em);
+        }
+      40% {
+      transform: translate(-1em);
+      }
+      50% {
+      transform: translate(1em);
+      }
+      60% {
+        transform: translate(-1em);
+      }
+      70% {
+          transform: translate(1em);
+        }
+      80% {
+        transform: translate(-1em);
+      }
+      90% {
+          transform: translate(1em);
+        }
+      100% {
+        transform: translate(0);
+      }
+    }
+.bottom-section{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+}
+.bottom-section a{
+color:black
+  }
