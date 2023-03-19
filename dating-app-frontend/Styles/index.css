@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 2;
+    box-sizing: border-box;
+    font-family: lato, arial;
+}
+.header{
+    padding-top: 2%;
+}
+.navbar{
+    color:#fff;
+}
+.navbar, .menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu a{
+    text-decoration: none;
+    margin: 4%;
+    padding: 0 30%;
+}
+.logo{
+    padding-right: 40%;
+}
