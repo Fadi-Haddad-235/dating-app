@@ -29,6 +29,19 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+    public function getUserProfile(Request $request)
+    {
+        $user_id = Auth::id();
+        $user_profile = DB::table('app_users')->where('id',$user_id)->get();
+        return response()->json([
+            'status' => 'success',
+            'users' => $user_profile
+        ]);
+        return response()->json([
+            'status' => 'error',
+            'message' => "error retrieving user's data"
+        ]);
+    }
     public function editProfile(Request $request)
     {
         $user = Auth::user();  //retrieves the entire user model instance

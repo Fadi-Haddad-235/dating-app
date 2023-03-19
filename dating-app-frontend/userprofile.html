@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="Styles/userprofile.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/userprofile.js"></script>
 </head>
 <body>
     <div class="header">
@@ -19,7 +21,7 @@
     <div class="container">
         <div class="left">
             <img src="images/person.jpg" alt="">
-            <h4>name</h4>
+            <h4>Name</h4>
             <button>edit profile</button>
             <a href="">Search</a>
             <a href="">Notifications</a>
@@ -27,7 +29,16 @@
             <a href="">New People</a>
             <a href="">Messages</a>
         </div>
-        <div class="right">right</div>
+        <div class="right">
+            <h4>Email</h4>
+            <p id="email">some email</p>
+            <h4>Age</h4>
+            <p id="age">some age</p>
+            <h4>Location</h4>
+            <p id="location">some location</p>
+            <h4>Bio</h4>
+            <p id="bio">some bio</p>
+        </div>
     </div>
 </body>
 </html>

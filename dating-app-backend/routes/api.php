@@ -15,7 +15,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::group(["middleware" => "auth:api"], function () {
     Route::post('/users', [UserController::class, 'getUsers']);
-    Route::post('/profile', [UserController::class, 'getUsers']);
+    Route::post('/profile', [UserController::class, 'getUserProfile']);
     Route::post('/editprofile', [UserController::class, 'editProfile']);
     Route::post('/user/{id}', [UserController::class, 'viewSomeProfile']);
     Route::post('/filterUsers', [UserController::class, 'filterUsers']);
@@ -25,4 +25,8 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::post('/unblock/{id}', [UserController::class, 'unBlockUser']);
     Route::get('/users/search', [UserController::class, 'search']);
     Route::post('/notifications', [UserController::class, 'viewNotifications']);
+});
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
