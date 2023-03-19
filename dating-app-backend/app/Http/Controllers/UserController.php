@@ -119,12 +119,16 @@ class UserController extends Controller
             DB::table('likes')->insert([
                 'user_id' => Auth::id(),
                 'liked_user_id' => $liked_user_id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
 
             DB::table('notifications')->insert([
                 'user_id' => Auth::id(),
                 'sender_id' => $liked_user_id,
                 'type' => 'like',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             return response()->json([
                 'status' => 'success',
@@ -150,14 +154,18 @@ class UserController extends Controller
 
             DB::table('blocks')->insert([
                 'user_id' => Auth::id(),
-                'blocked_user_id' => $blocked_user_id
+                'blocked_user_id' => $blocked_user_id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
                 
             ]);
 
             DB::table('notifications')->insert([
                 'user_id' => Auth::id(),
                 'sender_id' => $blocked_user_id,
-                'type' => 'block'
+                'type' => 'block',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
 
             return response()->json([
@@ -189,7 +197,9 @@ class UserController extends Controller
             DB::table('notifications')->insert([
                 'user_id' => Auth::id(),
                 'sender_id' => $blocked_user_id,
-                'type' => 'unblock'
+                'type' => 'unblock',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
     
         return response()->json([
@@ -222,7 +232,9 @@ class UserController extends Controller
             DB::table('notifications')->insert([
                 'user_id' => Auth::id(),
                 'sender_id' => $liked_user_id,
-                'type' => 'unlike'
+                'type' => 'unlike',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
         
             return response()->json([
@@ -244,6 +256,7 @@ class UserController extends Controller
             'data' => $users,
          ]);
         }
+
         public function viewNotifications(Request $request)
         {
         $notifications = DB::table('notifications')
