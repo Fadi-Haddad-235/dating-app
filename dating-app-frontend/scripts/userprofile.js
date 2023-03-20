@@ -10,6 +10,7 @@ window.onload=function(){
 
     axios.post("http://localhost:8000/api/profile",null, { headers })
         .then(response => {
+            // console.log(response);
             let user = response.data.users[0];
             let name = user.name;
             let email = user.email;
@@ -17,7 +18,7 @@ window.onload=function(){
             let age = user.age;
             let bio = user.bio;
             let profile_picture = user.profile_picture;
-            nameElement.innerHTML = name.toUpperCase();
+            nameElement.innerText = name;
             emailElement.innerHTML = email;
             ageElement.innerHTML = age;
             locationElement.innerHTML = location;
