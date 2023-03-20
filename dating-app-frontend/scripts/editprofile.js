@@ -42,10 +42,13 @@ window.onload=function(){
         let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
         axios.post("http://localhost:8000/api/editprofile",data, { headers })
             .then(response => {
-                alert("you have successfully changed your data")
+                alert("you have successfully changed your data");
             })
             .catch(error => {
                 console.log(error);
+                if (error.message=="Request failed with status code 422"){
+                    alert("check your data");
+                }
             });
     }
     btnElement.addEventListener("click",submitInfo);

@@ -45,8 +45,13 @@ class UserController extends Controller
     public function editProfile(Request $request)
     {
         $user = Auth::user();  //retrieves the entire user model instance
-
-
+        $request->validate([
+            'age' => 'required|integer',
+            'name' => 'required',
+            'bio' => 'required',
+            'location' => 'required|string',
+            'email' => 'required|string|email',
+        ]);
         $user->fill($request->only([
             'name',
             'email',
@@ -56,12 +61,7 @@ class UserController extends Controller
             'gender',
             'profile_picture',
         ]));
-
-        if ($request->has('password')) {
-            $user->password = Hash::make($request->password);
-        }
         $user->save();
-
         return response()->json([
             'status' => 'success',
             'data'=> $user
