@@ -1,5 +1,4 @@
 window.onload=function(){
-const form = document.getElementById("form");
 const password = document.getElementById("password");
 const email = document.getElementById("email");
 const age = document.getElementById("age");
@@ -8,7 +7,8 @@ const password_icon =document.getElementById("password-status");
 const email_icon =document.getElementById("email-status");
 const age_icon =document.getElementById("age-status");
 const name_icon =document.getElementById("name-status");
-const bottom_section=document.getElementById("bottom-section");
+const genderSelect = document.getElementById("gender");
+
 
 login_button=document.getElementById("login-button");
 login_button.addEventListener("click",validate);
@@ -79,12 +79,13 @@ function validate (){
     validateName();
 
     if (password_correct && email_correct && name_correct && age_correct){
-        
+        let selectedGender = genderSelect.value;
         let data = new FormData();
         data.append('email', email.value);
         data.append('password', password.value);
         data.append('age', age.value);
         data.append('name', name.value);
+        data.append('gender', selectedGender);
         console.log(data);
 
         axios.post('http://localhost:8000/api/register', data).then(function (res) {

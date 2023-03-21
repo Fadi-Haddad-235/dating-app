@@ -128,4 +128,8 @@ color:black
 #email, #password{
   height: 20px;
 }
-  
+
+.gender-select{
+  width: 248px;
+  margin: 5% 0;
+}
