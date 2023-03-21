@@ -91,11 +91,11 @@ function validate (){
         axios.post('http://localhost:8000/api/register', data).then(function (res) {
             console.log(res.data)
 
-            // localStorage.setItem('user', JSON.stringify(res.data.user));
+            localStorage.setItem('user', JSON.stringify(res.data.user));
             
-            // localStorage.setItem('token', res.data.authorisation.token);
+            localStorage.setItem('token', res.data.authorisation.token);
 
-            // window.location.href = '/userprofile.html';
+            window.location.href = '/userprofile.html';
 
             }).catch(function (err) {
                 console.log(err);

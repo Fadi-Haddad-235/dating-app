@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->text('bio')->nullable();
             $table->enum('gender', ['male', 'female']);
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->default('images/default-person.jpg');
             $table->boolean('is_blocked')->default(false);
             $table->timestamps();
         });
