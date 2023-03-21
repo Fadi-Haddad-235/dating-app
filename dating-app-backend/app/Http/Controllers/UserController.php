@@ -58,8 +58,6 @@ class UserController extends Controller
             'birthdate',
             'location',
             'bio',
-            'gender',
-            'profile_picture',
         ]));
         $user->save();
         return response()->json([

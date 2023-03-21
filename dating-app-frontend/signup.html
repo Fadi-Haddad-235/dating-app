@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="Styles/signup.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/43dc3f8d4d.js" crossorigin="anonymous"></script>
+    <script src="scripts/axios.min.js"></script>
+    <script src="scripts/signup.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <!-- <img src="images/Mobile-login.jpg" alt=""> -->
+        </div>
+        <form id="form" class="right" action="/">
+            <img src="images/logo.png" alt="logo">
+            <h1>Enter your info to Sign Up</h1>
+            <div class="name">
+                <span >Name</span>
+                <i id="name-status" class="fa-solid"></i>
+                <br>
+                <input  type="text" id="name" name="name" size="30" autocomplete="off">
+            </div>
+            <div class="age">
+                <span >Age</span>
+                <i id="age-status" class="fa-solid"></i>
+                <br>
+                <input type="text" id="age" name="age" size="30" autocomplete="off">
+            </div>
+            <div class="email">
+                <span >Email</span>
+                <i id="email-status" class="fa-solid"></i>
+                <br>
+                <input type="email" id="email" name="email" size="30" autocomplete="off">
+            <div class="password">
+                <span >Password</span>
+                <i id="password-status" class="fa-solid"></i>
+                <br>
+                <input type="password" id="password" name="pwd" size="30" autocomplete="off">
+                
+            </div>
+
+            <button class="" type="button" id="login-button" >Log In</button>
+
+            <div class="bottom-section">
+                <a class="sign-up-text" href="signup.html" ><u>Or Sign Up</u> </a>
+            </div>
+
+
+        </form>
+    </div>
+
+</body>
+</html>

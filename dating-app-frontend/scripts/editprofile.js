@@ -19,7 +19,8 @@ window.onload=function(){
                 let location = user.location;
                 let age = user.age;
                 let bio = user.bio;
-                nameElement.value = name.toUpperCase();
+                name= name.charAt(0).toUpperCase()+ name.slice(1);
+                nameElement.value = name;
                 emailElement.value = email;
                 ageElement.value = age;
                 locationElement.value = location;
@@ -38,14 +39,12 @@ window.onload=function(){
             let age = ageElement.value;
             let bio = bioElement.value;
             let data= {name,email,location,age,bio};
-            console.log(data);
         let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
-        axios.post("http://localhost:8000/api/editprofile",data, { headers })
+        axios.post("http://localhost:8000/api/editprofile",data, { headers });
             .then(response => {
                 alert("you have successfully changed your data");
             })
             .catch(error => {
-                console.log(error);
                 if (error.message=="Request failed with status code 422"){
                     alert("check your data");
                 }

@@ -93,7 +93,7 @@ h2{
   font-size: 1.8em;
 }
 .right{
-  margin-left: 10%;
+  margin-left: 20%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

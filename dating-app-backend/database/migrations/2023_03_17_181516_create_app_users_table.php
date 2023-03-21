@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             // $table->date('birthdate')->default(DB::raw('CURRENT_DATE'));
-            $table->integer('age');
+            $table->integer('age')->default(25);
             $table->string('location')->nullable();
             $table->text('bio')->nullable();
             $table->enum('gender', ['male', 'female']);

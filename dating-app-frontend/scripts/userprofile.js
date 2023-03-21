@@ -5,6 +5,8 @@ window.onload=function(){
     let locationElement = document.getElementById("location");
     let bioElement = document.getElementById("bio");
     let pictureElement = document.getElementById("user_picture");
+    let edit_profile =document.getElementById("edit_profile")
+    edit_profile.addEventListener("click",()=>{location.href = "editprofile.html";})
     
     let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
 
