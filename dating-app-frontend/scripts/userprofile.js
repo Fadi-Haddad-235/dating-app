@@ -7,12 +7,22 @@ window.onload=function(){
     let pictureElement = document.getElementById("user_picture");
     let edit_profile =document.getElementById("edit_profile")
     edit_profile.addEventListener("click",()=>{location.href = "editprofile.html";})
+    let login_btn= document.getElementById("logout-btn");
+    login_btn.addEventListener("click",()=>{
+        axios.post('http://localhost:8000/api/logout')
+        .then(response => {
+            console.log(response.data.message);
+            window.location.href = 'index.html';
+        })
+        .catch(error => {
+            console.log(error.response.data.message);
+        });
+    })
     
     let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
 
     axios.post("http://localhost:8000/api/profile",null, { headers })
         .then(response => {
-            // console.log(response);
             let user = response.data.users[0];
             let name = user.name;
             let email = user.email;
