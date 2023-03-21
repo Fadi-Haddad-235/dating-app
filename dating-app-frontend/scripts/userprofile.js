@@ -6,20 +6,20 @@ window.onload=function(){
     let bioElement = document.getElementById("bio");
     let pictureElement = document.getElementById("user_picture");
     let edit_profile =document.getElementById("edit_profile")
+    let logout_btn= document.getElementById("logout-btn");
+    let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
+
     edit_profile.addEventListener("click",()=>{location.href = "editprofile.html";})
-    let login_btn= document.getElementById("logout-btn");
-    login_btn.addEventListener("click",()=>{
+    logout_btn.addEventListener("click",()=>{
         axios.post('http://localhost:8000/api/logout')
         .then(response => {
             console.log(response.data.message);
-            window.location.href = 'index.html';
         })
         .catch(error => {
             console.log(error.response.data.message);
         });
     })
     
-    let headers= {'Authorization': 'Bearer ' + localStorage.getItem('token')};
 
     axios.post("http://localhost:8000/api/profile",null, { headers })
         .then(response => {
